@@ -263,6 +263,7 @@ public class AddTwoNumbersII {
     
         // ???? ????
         System.out.println("main <<< arr1: " + Arrays.toString(arr1));
+        System.out.println("main <<< arr2: " + Arrays.toString(arr2));
 
         // **** initialization ****
         ListNode l1     = null;
