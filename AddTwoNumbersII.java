@@ -101,7 +101,7 @@ public class AddTwoNumbersII {
         l1 = reverse(l1);
 
         // **** reverse l2 - O(n) ****
-        l2 = reverse(l2);
+        l2 = reverseList(l2);
 
         // **** traverse both lists - O(n)****
         while (l1 != null || l2 != null) {
@@ -139,6 +139,9 @@ public class AddTwoNumbersII {
      */
     private static ListNode reverse(ListNode ll) {
 
+        // **** sanity check(s) ****
+        if (ll.next == null) return ll;
+
         // **** initialization ****
         ListNode next = null;
         ListNode prev = null;
@@ -162,6 +165,52 @@ public class AddTwoNumbersII {
 
         // **** new head of linked list ****
         return ll = prev;
+    }
+
+
+    /**
+     * Reverse linked list.
+     * Recursive call entry point.
+     */
+    static public ListNode reverseList(ListNode ll) {
+
+        // **** sanity check(s) ****
+        if (ll.next == null) return ll;
+
+        // **** reverse the linked list ****
+        return reverseList(ll, ll, new ListNode[1]);
+    }
+
+
+   /**
+     * Reverse linked list.
+     * Recursive call.
+     */
+    private static ListNode reverseList(ListNode ll, ListNode oh, ListNode[] rh) {
+
+        // **** end condition (set the head for the rerersed linked list) ****
+        if (ll.next == null) {
+            rh[0] = ll;
+        }
+        
+        // **** recurse ****
+        else {
+
+            // **** recursive call ****
+            reverseList(ll.next, oh, rh);
+
+            // **** update next on previous node ****
+            ll.next.next = ll;
+
+            // **** set next on current node && return reversed head ****
+            if (ll == oh) {
+                ll.next = null;
+                return rh[0];
+            }
+        }
+
+        // **** return linked list ****
+        return ll;
     }
 
 
