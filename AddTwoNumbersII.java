@@ -311,7 +311,12 @@ public class AddTwoNumbersII {
         System.out.println("main <<< l2: " + dump(l2));
 
         // **** call the function of interest ****
-        // sum = addTwoNumbers0(l1, l2);
+        sum = addTwoNumbers0(l1, l2);
+
+        // **** display output ****
+        System.out.println("main <<< output: " + dump(sum));
+
+        // **** call the function of interest ****
         sum = addTwoNumbers(l1, l2);
     
         // **** display output ****
